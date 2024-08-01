@@ -1,0 +1,71 @@
+{% extends "plantilla.html" %}
+{% load static %}
+{% block body %}
+
+<img src="{% static 'img/cine.jpeg' %}" alt=""Error>
+<h1>
+    Hola Mundo desde Django :)
+</h1>
+<hr>
+<center>
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel slide" >
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'img/cine2.jpeg' %}" alt="..."  height="600px" width="60%">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'img/cine3.jpeg' %}" alt="..."  height="600px" width="60%">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'img/cine4.jpeg' %}" alt="..."  height="600px" width="60%">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</center>
+
+
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">MISIÓN</h5>
+          <p class="card-text">
+            La misión de nuestro cine es proporcionar una experiencia de entretenimiento excepcional, fomentando la 
+            apreciación del cine como una forma de arte y cultura. Nos comprometemos a educar y sensibilizar a nuestra 
+            audiencia sobre temas importantes a través de contenido audiovisual variado, al mismo tiempo que apoyamos a 
+            la industria cinematográfica al ofrecer una plataforma para cineastas y profesionales. Buscamos ser un punto 
+            de encuentro que fortalezca la comunidad, incorporando tecnologías avanzadas para mejorar la experiencia del
+             espectador y adoptando prácticas sostenibles para minimizar nuestro impacto ambiental.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">VISIÓN</h5>
+          <p class="card-text">Nuestra visión es convertirnos en el cine líder y más querido de la comunidad, reconocido 
+            por nuestra diversidad en la selección de películas y nuestro compromiso con la calidad y la innovación. 
+            Aspiramos a ser un centro cultural vibrante que inspire y eduque a través del cine, creando un espacio 
+            inclusivo y acogedor para todos. Nos vemos como pioneros en la adopción de tecnologías sostenibles y en la 
+            promoción de prácticas ecológicas, estableciendo un nuevo estándar en la industria cinematográfica. Buscamos
+             construir una comunidad unida por el amor al cine, donde cada visita sea una experiencia memorable y 
+             enriquecedora.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+{% endblock %}
