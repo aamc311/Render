@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-1d#&kbb5)%9ml@xa!p&*k(b42fnp4p%yyv^l#z=r3^is31zlzm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'render-1el7.onrender.com').split(',')
 
 
 # Application definition
@@ -78,16 +78,16 @@ WSGI_APPLICATION = 'cineUTC.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.sqlite3',
-         'NAME': 'bddcineUTC.db',
-    }
-}
 # DATABASES = {
-#     # 'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
-#     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'bddcineUTC.db',
+#     }
 # }
+DATABASES = {
+    # 'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+}
 
 
 # Password validation
