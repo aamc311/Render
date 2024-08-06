@@ -1,0 +1,106 @@
+{% extends "./plantilla.html" %}
+{% block body %}
+<br><br><br>
+<div class="container-fluid">
+    <div class="col-md-12">
+        <form action="{% url 'guardarCascada' %}" enctype="multipart/form-data" id="frm_nueva_cascada" method="post">
+            {% csrf_token %}
+            <label for=""><b>Nombre</b></label>
+            <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Ingrese el nombre del genero">
+            <label for=""><b>Altura</b></label>
+            <textarea name="altura" id="altura" class="form-control" rows="3" placeholder="Ingrese la descripcion"></textarea>
+            <label for=""><b>Agua</b></label>
+            <textarea name="agua" id="agua" class="form-control" rows="3" placeholder="Ingrese la descripcion"></textarea>
+            <label for=""><b>Ubicacion</b></label>
+            <textarea name="ubicacion" id="ubicacion" class="form-control" rows="3" placeholder="Ingrese la descripcion"></textarea>
+            <label for=""><b>Acceso</b></label>
+            <textarea name="acceso" id="acceso" class="form-control" rows="3" placeholder="Ingrese la descripcion"></textarea>
+            <label for=""><b>Imagen</b></label>
+            <input type="file" name="imagen" id="imagen"
+            accept="image/*" required class="form-control">
+            <label for=""><b>Fecha de visita</b></label>
+            <textarea name="fecha" id="fecha" class="form-control" rows="3" placeholder="Ingrese la descripcion"></textarea>
+            <br>
+            <button type="submit" class="btn btn_primary">
+                Guardar</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url 'listadoCascadas' %}">Cancelar</a>
+        </form>
+    </div>
+</div>
+<br><br><br>
+<script>
+    $("#frm_nueva_cascada").validate(
+    {
+        rules:{
+            nombre:{
+                required:true,
+                minlength:3,
+                maxlenght:10
+            },
+            altura:{
+                required:true,
+                minlength:3,
+                maxlenght:10
+            },
+            agua:{
+                required:true,
+                minlength:3,
+                maxlenght:10
+            },
+            acceso:{
+                required:true,
+                minlength:3,
+                maxlenght:10
+            },
+            imagen:{
+                required:true
+            },
+            fecha:{
+                required:true,
+                minlength:3,
+                maxlenght:10
+            },
+        },
+        messages:{
+            nombre:{
+                required:" Por favor ingrese el nombre ",
+                minlength:" El nombre debe de tener al monos 3 letras ",
+                maxlenght: "Maximo 10 caracteres"
+            },
+            altura:{
+                required:" Por favor ingrese el nombre ",
+                minlength:" El nombre debe de tener al monos 3 letras ",
+                maxlenght: "Maximo 10 caracteres"
+            },
+            agua:{
+                required:" Por favor ingrese el nombre ",
+                minlength:" El nombre debe de tener al monos 3 letras ",
+                maxlenght: "Maximo 10 caracteres"
+            },
+            ubicacion:{
+                required:" Por favor ingrese el nombre ",
+                minlength:" El nombre debe de tener al monos 3 letras ",
+                maxlenght: "Maximo 10 caracteres"
+            },
+            acceso:{
+                required:" Por favor ingrese el nombre ",
+                minlength:" El nombre debe de tener al monos 3 letras ",
+                maxlenght: "Maximo 10 caracteres"
+            },
+            imagen:{
+                required:"Por favor  elija un archivo"
+            } 
+            fecha:{
+                required:" Por favor ingrese el nombre ",
+                minlength:" El nombre debe de tener al monos 3 letras ",
+                maxlenght: "Maximo 10 caracteres"
+            },
+        }
+
+    });
+ 
+</script>
+
+
+{% endblock %}

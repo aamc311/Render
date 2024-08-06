@@ -2,16 +2,20 @@ from django.db import models
 
 
 #Creando modelo Genero: Terror, Comedia
-class Genero(models.Model):
+class Cascada(models.Model):
     id=models.AutoField(primary_key=True)
     nombre=models.CharField(max_length=25)
-    descripcion=models.CharField(max_length=150,default='')
-    foto=models.FileField(upload_to='generos',null=True,blank=True)
+    altura=models.BooleanField(default=True)
+    agua=models.BooleanField(default=True)
+    ubicacion=models.CharField(max_length=150)
+    acceso=models.CharField(max_length=75)
+    imagen=models.FileField(upload_to='cascadas',null=True,blank=True)
+    fecha=models.DateField()
 #crear un metodo
     def __str__(self):
         #estructura para fila
         fila="{0}: {1} -{2}"
-        return fila.format(self.id,self.nombre,self.descripcion)
+        return fila.format(self.id,self.nombre,self.altura,self.agua,self.ubicacion,self.acceso)
     
 class Director(models.Model):
     id=models.AutoField(primary_key=True)
@@ -39,7 +43,7 @@ class Pelicula(models.Model):
      titulo=models.CharField(max_length=250)
      duracion=models.TimeField(null=True)
      sinopsis=models.TextField()
-     genero=models.ForeignKey(Genero,on_delete=models.CASCADE)
+     genero=models.ForeignKey(Cascada,on_delete=models.CASCADE)
      director=models.ForeignKey(Director,on_delete=models.CASCADE)
      portada=models.FileField(upload_to='portadas',null=True,blank=True)
      def __str__(self):

@@ -1,0 +1,66 @@
+{% extends "plantilla.html" %}
+{% block body %}
+<br>
+<div class="card_title text_center"> 
+    <h3> <b>Listado de Cascadas</b></h3>
+</div>
+<br>
+<div class="text-end">
+    <a href="{% url 'nuevaCascada' %}" class="btn btn-success">Agregar Cascada</a>
+</div>
+<br>
+<table class="table table-bordered table-stiped table-hover" id="tbl-cascadas">
+<thead>
+    <tr>
+        <th>ID</th>
+        <th>NOMBRE</th>
+        <th>ALTURA</th>
+        <th>VOLUMEN DE AGUA</th>
+        <th>UBICACION</th>
+        <th>IMAGEN</th>
+        <th>FECHA DE VISITA</th>
+    </tr>
+    </thead>
+    <TBody>
+        {% for cascadaTemporal in cascadas %}
+        <tr>
+            <td>{{cascadaTemporal.id}}</td>
+            <td>{{cascadaTemporal.nombre}}</td>
+            <td>{{cascadaTemporal.altura}}</td>
+            <td>{{cascadaTemporal.agua}}</td>
+            <td>{{cascadaTemporal.ubicacion}}</td>
+            <td>{{cascadaTemporal.acceso}}</td>
+            <td>{{cascadaTemporal.fecha}}</td>
+            <td>
+                <a download href="{{cascadaTemporal.imagen.url}}" target="_blank">
+                    <img src="{{cascadaTemporal.imagen.url}}" alt="" height="100px" width="100px">
+                </a><br>
+                <a download href="{{cascadaTemporal.imagen.url}}">
+                    Descargar
+                </a>
+                
+            </td>
+            <td>
+                <a href="{% url 'editarCascada' cascadaTemporal.id %}" class="btn btn btn-warning">EDITAR</a>
+                <a href="{% url 'eliminarCascada' cascadaTemporal.id %}"
+                onclick="return confirm('Estas seguro?')"
+                class="btn btn btn-danger">ELIMINAR</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </TBody>
+</table>
+<script>
+    let table = new DataTable('#tbl-casacadas');
+</script>
+<style>
+    .dt-input{
+        border: 3px solid red !important;
+        border-radius: 20px !important;
+    }
+    .dt-search label{
+        color: green !important;
+    }
+</style>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "./plantilla.html" %}
+{% block body %}
+<h1>EDITAR CASCADA</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="{% url 'procesarActulizacionCascada' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="id" value="{{cascadaEditar.id}}">
+                <label for=""><b>Nombre:</b></label>
+                <input type="text" name="nombre" class="form-control"
+                value="{{cascadaEditar.nombre}}"
+                id="nombre" placeholder="Ingrese el nombre de la cascada">
+
+                <label for=""><b>Altura:</b></label>
+                <input type="text" name="altura" class="form-control"
+                value="{{cascadaEditar.altura}}"
+                id="altura" placeholder="Ingrese el altura de la cascada">
+
+                <label for=""><b>Agua:</b></label>
+                <input type="text" name="agua" class="form-control"
+                value="{{cascadaEditar.agua}}"
+                id="agua" placeholder="Ingrese la cantidad de agua de la cascada">
+
+                <label for=""><b>Ubicacion:</b></label>
+                <input type="text" name="ubicacion" class="form-control"
+                value="{{cascadaEditar.ubicacion}}"
+                id="ubicacion" placeholder="Ingrese la ubicacion de la cascada">
+
+                <label for=""><b>Acceso:</b></label>
+                <input type="text" name="acceso" class="form-control"
+                value="{{cascadaEditar.acceso}}"
+                id="acceso" placeholder="Ingrese el acceso de la cascada">
+
+                <label for=""><b>Imagen:</b></label>
+                <input type="text" name="imagen" class="form-control"
+                value="{{cascadaEditar.imagen}}"
+                id="imagen" placeholder="Ingrese la imagen de la cascada">
+
+                <label for=""><b>Fecha:</b></label>
+                <input type="data" name="fecha" class="form-control"
+                value="{{cascadaEditar.fecha}}"
+                id="fecha" placeholder="Ingrese la fecha de la cascada">
+                
+                <br>
+                <button  type="submit" class="btn btn-warning">
+                    Actualizar</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="{% url 'listadoCascadas' %}">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+{% endblock %}
